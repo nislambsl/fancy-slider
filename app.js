@@ -4,6 +4,17 @@ const galleryHeader = document.querySelector('.gallery-header');
 const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
+
+// const imagesArea = document.querySelector('.images');
+// const gallery = document.querySelector('.gallery');
+// const galleryHeader = document.querySelector('.gallery-header');
+// const searchBtn = document.getElementById('search-btn');
+// const sliderBtn = document.getElementById('create-slider');
+// const sliderContainer = document.getElementById('sliders');
+// const inputField = document.getElementById('search');
+// const durationField = document.getElementById('duration');
+
+
 // selected image 
 let sliders = [];
 
@@ -26,7 +37,7 @@ const showImages = (images) => {
     gallery.appendChild(div)
   })
 
-}
+} 
 
 const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
@@ -48,7 +59,7 @@ const selectItem = (event, img) => {
   }
 }
 var timer
-const createSlider = () => {
+const createSlider = (img) => {
   // check slider image length
   if (sliders.length < 2) {
     alert('Select at least 2 image.')
@@ -98,7 +109,7 @@ const changeSlide = (index) => {
   };
 
   if (index >= items.length) {
-    index = 0;
+    index <= 0;
     slideIndex = 0;
   }
 
@@ -108,6 +119,7 @@ const changeSlide = (index) => {
 
   items[index].style.display = "block"
 }
+
 
 searchBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
@@ -126,6 +138,7 @@ document.getElementById("search")
 .addEventListener("keypress", function (event) {
   if (event.key==='Enter') { document.getElementById("search-btn").click();
 }
+
 }); 
 
 
